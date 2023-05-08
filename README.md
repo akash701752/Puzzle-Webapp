@@ -37,3 +37,15 @@ Puzzle
 
 Deadend   
 ![Deadend page](WebsiteImages/trick.png) 
+
+# Languages and Technologies Used
+HTML 
+CSS  
+Javascript 
+Firebase 
+
+# Source
+Youtube : https://www.youtube.com/    
+Javascript Documentation : https://developer.mozilla.org/en-US/docs/Web/JavaScript     
+W3Schools : https://www.w3schools.com/       
+Firebase Documentation : https://firebase.google.com/docs   
