@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Navbar CSS */
+.navbar{
+    background-color: #e0a5a5;
+    padding: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+}
+.heading-primary {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.heading-secondary{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 10px 10px 10px 0px;
+    
+
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}

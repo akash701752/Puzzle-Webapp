@@ -1,0 +1,97 @@
+*{
+    background-color: rgb(143, 219, 239);
+}
+.main{
+    /* margin: 10px; */
+    padding: 10px 0 0 0px;
+    border: 1px solid rgb(116, 114, 114);
+    width: 600px;
+    /* height: 40rem; */
+    height: 600px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url('../images/brain1.jpg');
+    background-repeat: no-repeat;
+    background-size: 600px 600px;
+    display:  block;
+    text-align: center;
+}
+.heading{
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.heading > span:nth-child(1){
+    margin: 10px;
+    margin-left: 65vh;
+    color: rgb(221, 58, 88);
+    font-size: 45px;
+    border: 1px solid black;
+    width:25rem;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 35px;
+    font-weight: 500;
+}
+.heading > span:nth-child(1):hover{
+    color: aliceblue;
+    background-color: rgb(13, 14, 14);
+}
+.heading > span:nth-child(2){
+    margin: 10px;
+    margin-left: 65vh;
+    color: rgb(234, 197, 13);
+    border: 1px solid black;
+    width:25rem;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 35px;
+    font-weight: 500;
+    font-size: 35px;
+}
+
+.img1{
+    border-radius: 35px;
+}
+
+.parent{
+    /* margin: 10px; */
+    padding: 50px;
+    width: 100%;
+    height: 355px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.child{
+    border: 1px solid rgb(240, 153, 153);
+    border-radius: 30px;
+    box-shadow: 5px 5px 40px rgb(223, 42, 42);
+}
+
+/* .btn{
+    display: flex;
+    width: 45px;
+    border: 1px solid blue;
+} */
+.b-parent{
+    /* margin: 10px; */
+    padding: 50px;
+    width: 100%;
+    height: 355px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.btn{
+    color: white;
+    background-color: blue;
+    border-radius: 25px;
+    width: 8rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+.btn:hover{
+    color: rgb(14, 14, 14);
+    background-color: rgb(53, 255, 8);
+    box-shadow: 5px 5px 10px rgb(211, 108, 108);
+}

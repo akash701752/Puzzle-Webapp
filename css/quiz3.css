@@ -1,0 +1,64 @@
+body{
+    background-image: url('../images/quiz3.jpg');
+    background-size: 100vh 100vh;
+}
+.n-quiz{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+    color: tomato;
+}
+.parent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(177, 82, 82);
+    margin: 10vh 20vh 20vh 20vh;
+    border-radius: 25px;
+    box-shadow: 5px 5px 20px rgb(51, 64, 211);
+}
+.parent:hover{
+    background-color: rgb(199, 219, 50);
+}
+.child > span:nth-child(1){
+    color: rgb(15, 228, 33);
+    font-size: 3rem;
+}
+.child > img{
+    padding: 10px;
+    border-radius: 20px;
+}
+.child > a{
+    text-decoration: none;
+    color: rgb(13, 202, 23);
+}
+.child > a:hover{
+    color:red;
+}
+
+
+.parent-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(104, 177, 82);
+    margin: 20vh 20vh 20vh 20vh;
+    border-radius: 25px;
+    box-shadow: 5px 5px 20px rgb(202, 233, 23);
+    height: 5rem;
+}
+.child-form > label{
+    font-size: 2.2rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255, 134, 14);
+}
+.parent-form:hover{
+    background-color: rgb(247, 64, 64);
+}
+.btn{
+    background-color: rgb(45, 113, 229);
+    font-size: 1.1rem;
+    border-radius: 25px;
+    color: white;
+}

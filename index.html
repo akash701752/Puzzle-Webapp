@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg-dark p-4">
+            <h5 class="text-white h4">Brainstroming</h5>
+            <span class="text-muted">Website to level up your skills.</span>
+          </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+      </div>
+
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <!-- <h2 class="text-center text-dark mt-5">Login Form</h2> -->
+            <!-- <div class="text-center mb-5 text-dark">Made with bootstrap</div> -->
+            <div class="card my-5">
+    
+              <form class="card-body cardbody-color p-lg-5">
+    
+                <div class="text-center">
+                  <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                    width="200px" alt="profile">
+                </div>
+    
+                <div class="mb-3">
+                  <input type="text" class="form-control" id="email" aria-describedby="emailHelp"
+                    placeholder="Email">
+                </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" id="password" placeholder="password">
+                </div>
+                <!-- <div class="text-center">
+                    <button type="button" class="btn btn-color px-5 mb-5 w-100" id="login">Login</button>
+                </div> -->
+                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="button" class="btn btn-primary btn-lg" id="login" onclick="">Login</button>
+                  </div>
+                <div id="registerdiv" class="form-text text-center mb-5 text-dark">Not
+                  Registered? <a href="register.html" class="text-dark fw-bold"> Create an
+                    Account</a>
+                </div>
+              </form>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+      <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase.js"></script>
+      <script type="module">
+        // Import the functions you need from the SDKs you need
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+       import { getDatabase , set , ref , update} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+       import { getAuth,createUserWithEmailAndPassword ,signInWithEmailAndPassword , onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+       // TODO: Add SDKs for Firebase products that you want to use
+       // https://firebase.google.com/docs/web/setup#available-libraries
+
+       // Your web app's Firebase configuration
+       const firebaseConfig = {
+           apiKey: "AIzaSyCqDzV0DPd_1_HP3bCW6BgBLsfGsxVl6cQ",
+           authDomain: "authentication-app-9fb3c.firebaseapp.com",
+           databaseURL: "https://authentication-app-9fb3c-default-rtdb.firebaseio.com",
+           projectId: "authentication-app-9fb3c",
+           storageBucket: "authentication-app-9fb3c.appspot.com",
+           messagingSenderId: "273612730542",
+           appId: "1:273612730542:web:27cc8c209b465cd5983d3f"
+       };
+
+       // Initialize Firebase
+
+       //    firebase.initializeApp(firebaseConfig);
+       const app = initializeApp(firebaseConfig);
+       const database = getDatabase(app) ;
+       const auth = getAuth(app);
+
+       login.addEventListener('click',(e)=>{
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        console.log(email);
+        // console.log(password);
+
+
+        // firebase.auth().signInWithEmailAndPassword(email, password)
+        // .then((userCredential) => {
+        //     // The user is now signed in
+        //     var user = userCredential.user;
+        //     console.log("User " + user.email + " is now signed in");
+
+        //     const dt = new Date();
+        //     update(ref(database, 'users/' + user.uid),{
+        //         last_login:dt
+        //     })
+        //      update(ref(database, 'users/' + user.uid),{
+        //          last_login: dt,
+        //          console.log('data updated');
+        //     })
+        // })
+        // .catch((error) => {
+        //     console.error(error);
+        // });
+
+        var email = document.getElementById('email').value.toString().trim();
+        var password = document.getElementById('password').value.toString().trim();
+
+        if(email=='elitmus@admin.com'){
+            if(password=='elitmus'){
+                window.location.href = 'admin.html';
+            }else{
+                alert('wrong password');
+            }
+            return;
+        }
+
+        signInWithEmailAndPassword(auth, email, password)
+         .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+
+            const dt = new Date();
+            update(ref(database, 'users/' + user.uid),{
+                last_login:dt
+            })
+            // alert('User loged in!');
+            window.location.assign('start.html');
+            // ...
+         })
+        .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+
+ });
+   </script>
+</body>
+</html>

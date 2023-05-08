@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 2</title>
+    <link rel="stylesheet" href="css/quiz3.css">
+</head>
+<body>
+    <div class="n-quiz">
+        <h1>QUIZ-2</h1>
+    </div>
+    <div class="parent">
+        <div class="child">
+            <span>Clue : </span>
+            <img src="images/puzzle3.jpg" alt="quiz3" height="200px" width="200px">
+            <span>Hint : Qudrants in Circle ??</span>
+        </div>
+    </div>
+    <div class="parent-form">
+        <div class="child-form">
+            <label for="answer">Answer : </label>
+            <input type="text" id="answer" name="answer" placeholder="enter your response">
+            <button type="button" class="btn"> Submit</button>
+        </div>
+    </div>
+    
+    <script>
+        let input = document.querySelector('input');
+        let btn = document.querySelector('button');
+
+        let correct = 0, total = 0;
+        let accuracy = 0.0;
+
+        btn.onclick = function () {
+
+            var ok = false;
+
+            let answerString = input.value;
+            total++;
+            if (answerString.length == 0) {
+                alert('Invalid input');
+            }
+            else if (answerString == 4) {
+                ok = true;
+                correct++;
+                alert('Correct Answre');
+                window.location.href = ('quiz4.html');
+            } else {
+                alert('Oops! wrong answer');
+            }
+            accuracy = (correct / total) * 100;
+            uploadData(accuracy, ok);
+
+        }
+
+        function uploadData(accuracy, ok) {
+            firebase.auth().onAuthStateChanged(async (user) => {
+                if (user) {
+                    var uid = user.uid;
+                    await firebase.database().ref('data/' + uid + '/clue3').set({
+                        accuracy: accuracy
+                    })
+
+                    if (ok) {
+                        window.location.href = ('quiz4.html');
+                    }
+                } else {
+                    alert('data not uploaded');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

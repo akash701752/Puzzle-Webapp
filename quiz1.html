@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/quiz1.css">
+</head>
+<body>
+    <!-- <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg-dark p-4">
+            <h5 class="text-white h4">Brainstroming</h5>
+            <span class="text-muted">Website to level up your skills.</span>
+          </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+      </div> -->
+    <div class="n-quiz">
+        <h1>QUIZ-1</h1>
+    </div>
+    <div class="parent-clue">
+        <div class="child-clue">
+            <span>Clue : </span>
+            <span> I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I ?</span>
+        </div>
+    </div>
+    <div class="parent-form">
+        <div class="child-form">
+            <form action="">
+                <label for="answer">Answer : </label>
+                <input type="text" id="answer" placeholder="Enter Answer">
+                <button id="btn" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script >
+
+        let input = document.querySelector('input');
+        let btn = document.querySelector('button');
+
+        let correct = 0, total = 0;
+        let accuracy = 0.0;
+
+        btn.onclick = function () {
+
+            var ok = false;
+
+            let answerString = input.value.toString().toLowerCase();
+            total++;
+            if (answerString.length == 0) {
+                alert('Invalid input');
+            }
+            else if (answerString == "map".toLowerCase().trim()) {
+                ok=true;
+                correct++;
+                alert('Correct Answer');
+                window.location.href=('quiz2.html');
+            } else {
+                alert('Oops! wrong answer');
+            }
+            accuracy = (correct/total)*100;
+            uploadData(accuracy,ok);
+
+        }
+
+
+        function uploadData(accuracy,ok){
+            firebase.auth().onAuthStateChanged( async(user) => {
+                if (user) {
+                    var uid = user.uid;
+                await firebase.database().ref('data/' + uid + '/clue1').set({
+                        accuracy: accuracy
+                    })
+
+                    if(ok){
+                        window.location.href=('quiz2.html');
+                    }
+                } else {
+                    alert('data not uploaded');
+                }
+            });
+        }
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        // import { getDatabase , set , ref} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+        // import { getAuth,createUserWithEmailAndPassword , onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+        // // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // const firebaseConfig = {
+        //     apiKey: "AIzaSyCqDzV0DPd_1_HP3bCW6BgBLsfGsxVl6cQ",
+        //     authDomain: "authentication-app-9fb3c.firebaseapp.com",
+        //     databaseURL: "https://authentication-app-9fb3c-default-rtdb.firebaseio.com",
+        //     projectId: "authentication-app-9fb3c",
+        //     storageBucket: "authentication-app-9fb3c.appspot.com",
+        //     messagingSenderId: "273612730542",
+        //     appId: "1:273612730542:web:27cc8c209b465cd5983d3f"
+        // };
+
+        // // Initialize Firebase
+        // const app = initializeApp(firebaseConfig);
+        // const database = getDatabase(app) ;
+        // const auth = getAuth(app);
+
+        // let input = document.querySelector('input');
+        // let btn = document.querySelector('button');
+
+        // let correct = 0, total = 0;
+        // let accuracy = 0.0;
+        // console.log(correct);
+        // btn.onclick = function () {
+        //     var ok = false;
+
+        //     // let answerString = input.value.toString().toLowerCase();
+        //     var answerString = document.getElementById('answer').value;
+        //     console.log(answerString);
+        //     total++;
+        //     if (answerString.length == 0) {
+        //         alert('Invalid input');
+        //     }
+        //     else if (answerString == "map") {
+        //         ok=true;
+        //         correct++;
+        //         alert('Correct Answer');
+        //         window.location.href=('quiz2.html');
+        //     } else {
+        //         alert('Oops! wrong answer');
+        //     }
+        //     accuracy = (correct/total)*100;
+        //     //uploadData(accuracy,ok);
+
+        // }
+        // function uploadData(accuracy,ok){
+        //     auth.onAuthStateChanged( async(user) => {
+        //         console.log(user);
+        //         if (user) {
+        //             var uid = user.uid;
+
+        //             await firebase.database().ref('data/' + uid + '/clue1').set({
+        //             accuracy: accuracy
+        //             })
+                   
+        //         }
+        //         else{
+        //             alert('data not uploaded');
+        //         }
+        //         // ref('data/' + uid + '/clue1').set({
+        //         //         accuracy: accuracy
+        //         //     })
+
+        //         //     if(ok){
+        //         //         window.location.href=('quiz2.html');
+        //         //     }
+        //         // } else {
+        //         //     alert('data not uploaded');
+        //         // }
+        //     })
+        // }
+    </script>
+</body>
+</html>
