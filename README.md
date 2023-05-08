@@ -21,3 +21,19 @@ Link : https://puzzle-webapp.netlify.app/
 5. User should use hints and clues to guess the answer.  
 6. User will forwarded to next level only if they pass the prior level.
 7. There are some wrong clues are also present which leads to deadend.
+
+# Website Glimpse
+Register Page     
+![register page](WebsiteImages/register.png)      
+
+LogIn Page      
+![login page](WebsiteImages/login.png) 
+
+Start Page    
+![start page](WebsiteImages/start.png) 
+
+Puzzle    
+![quiz page](WebsiteImages/quiz.png) 
+
+Deadend   
+![Deadend page](WebsiteImages/trick.png) 
